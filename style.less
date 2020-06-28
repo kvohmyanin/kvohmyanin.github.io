@@ -1,3 +1,6 @@
+@bgColorGrey: #f5f5f5;
+@menuColor: #8c8c8c;
+
 * {
     margin: 0;
     padding: 0;
@@ -15,47 +18,50 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    color: #1e88e5;
-}
-
 a:active {
     color: red;
 }
 
-.clearfix::before {
+.clearfix::after {
     clear: both;
     content: "";
     display: table;
-
-    margin-top: -1px;
     height: 0;
 }
 
 .container {
     width: 1366px;
     margin: 0 auto;
-    s position: relative;
+}
+
+.padding-site {
+    padding-left: 98px;
+    padding-right: 98px;
+}
+
+.header {
+    height: 360px;
+    background-color: @bgColorGrey;
+    overflow: auto;
+
+    .title {
+        font-size: 62px;
+        line-height: 72px;
+        font-weight: 100;
+        color: #212121;
+    }
 }
 
 .navbar {
-    height: 90px;
-    position: relative;
-    z-index: 1;
-}
-
-.logo {
-    float: left;
-    margin-left: 98px;
     margin-top: 63px;
 }
 
-.menu {
-    margin: 0px;
-    margin-top: 67px;
+.logo {
+    display: inline-block;
+}
 
-    position: absolute;
-    left: 665px;
+.menu {
+    float: right;
 }
 
 
@@ -78,7 +84,7 @@ a:active {
     letter-spacing: 0.1em;
 
     font-weight: 300;
-    color: #8c8c8c;
+    color: @menuColor;
 
     display: inline-block;
     margin: 0px;
@@ -96,7 +102,12 @@ a:active {
     /* Text styles for "HOME " */
     font-weight: 700;
     color: #212121;
+
+}
+
+a.menu-li-a:hover {
     border-bottom: 3px solid #212121;
+
 }
 
 .search {
@@ -106,14 +117,12 @@ a:active {
 .slider {
     background-image: url(img/slider_img_201.png);
     height: 800px;
+    overflow: auto;
     position: relative;
-    margin-top: -90px;
 }
 
 .slider-wrap {
-    position: absolute;
-    top: 373px;
-    left: 98px;
+    margin-top: 288px;
 }
 
 .slider-tag {
@@ -166,6 +175,10 @@ a:active {
     line-height: 53px;
 }
 
+.order-btn:hover {
+    box-shadow: 0px 6px 6px 0.3px rgba(33, 33, 33, 0.35);
+}
+
 .slider-nav {
     position: absolute;
     bottom: 0;
@@ -189,18 +202,21 @@ a:active {
 .slider-nav-li-active {
     width: 40px;
     height: 40px;
-    background-color: #212121;
     border-radius: 20.0px;
     opacity: 1;
     margin-bottom: -5px;
 }
 
+.slider-nav-li:hover {
+    opacity: 1;
+}
+
 .featured-product {
-    height: 610px;
+    overflow: auto;
+    padding-top: 120px;
 }
 
 .featured-product-menu {
-    margin: 120px 118px 0 98px;
     height: 100px;
 }
 
@@ -238,25 +254,45 @@ a:active {
 }
 
 .featured-items {
-    margin-left: 98px;
-    position: relative;
+    padding-left: 98px;
 }
 
 .featured-item {
     float: left;
     margin-right: 30px;
+    margin-bottom: 30px;
+    width: 270px;
+    height: 270px;
+}
+
+.featured-item-img-1 {
+    background-image: url(img/product_1_172.png);
+}
+
+.featured-item-img-2 {
+    background-image: url(img/product_2_170.png);
+}
+
+.featured-item-img-3 {
+    background-image: url(img/product_3_168.png);
+}
+
+.featured-item-img-4 {
+    background-image: url(img/product_4_166.png);
 }
 
 .product-content-hover {
+    display: none;
     width: 270px;
     height: 270px;
     opacity: 0.9;
     background-color: #ffffff;
-    border: 1.0px solid #9c9c9c;
+    outline: 1.0px solid #9c9c9c;
+    overflow: auto;
+}
 
-    position: absolute;
-    top: 0;
-    left: 0;
+.featured-item:hover .product-content-hover {
+    display: block;
 }
 
 a.icon-hover {
@@ -300,7 +336,8 @@ a.icon-hover {
 }
 
 .promo-product {
-    height: 683px;
+    margin-top: 110px;
+    overflow: auto;
 }
 
 .promo-content {
@@ -356,7 +393,6 @@ a.icon-hover {
 }
 
 .trending-products {
-    height: 1110px;
 }
 
 .trending-products-menu {
@@ -388,6 +424,8 @@ a.icon-hover {
     background-image: url(img/slider_84.png);
     height: 800px;
     position: relative;
+    overflow: auto;
+    margin-top: 90px;
 }
 
 .hot-deal-tag {
@@ -608,8 +646,8 @@ button {
 
 
 .social {
-        margin-left: 65px;
-/*
+    margin-left: 65px;
+    /*
     align-content: center;
     vertical-align: middle;
     left: 50%;
